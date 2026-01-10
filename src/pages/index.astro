@@ -2,15 +2,116 @@
 
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Kevin | CS @ GT</title>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Hi, I'm <span class="highlight">Kevin</span>—<br/>
+              I build things and <br/>
+              <span class="italic">sometimes</span> they work.
+            </h1>
+            
+            <p class="hero-description">
+              CS student at Georgia Tech passionate about distributed systems, 
+              machine learning, and crafting software that solves real problems. 
+              Currently exploring the intersection of AI and developer tooling.
+            </p>
+            
+            <div class="hero-actions">
+              <a href="/projects" class="btn btn-primary">See my work</a>
+              <a href="#about" class="btn btn-secondary">More about me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    background: #0f0a12;
+    color: #f5f0f5;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+  }
+
+  .hero-title {
+    font-family: Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .hero-title .highlight {
+    color: #f472b6;
+  }
+
+  .hero-title .italic {
+    font-style: italic;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    color: #b8a8b8;
+    max-width: 480px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: #f472b6;
+    color: #0f0a12;
+  }
+
+  .btn-secondary {
+    border: 1px solid #3d2d45;
+    color: #f5f0f5;
+  }
+</style>
