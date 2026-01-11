@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  link?: string;
+  linkText?: string;
+  subtitle?: string;
+}
+
+const { title, link, linkText = 'View all', subtitle } = Astro.props;
+---
+
+<div class="section-header">
+  <h2 class="section-title">{title}</h2>
+  {subtitle && <span class="section-subtitle">{subtitle}</span>}
+  {link && (
+    <a href={link} class="section-link">
+      {linkText}
+      <Icon name="lucide:arrow-right" size={16} />
+    </a>
+  )}
+</div>
+
+<style>
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .section-link {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+</style>
