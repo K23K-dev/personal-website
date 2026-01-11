@@ -2,10 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PlaceCard from '../components/PlaceCard.astro';
+import { favoritePlaces } from '../data/places';
 ---
 
 <Layout title="Vibes | Kevin">
   <Nav />
+  
   <main>
     <section class="hero">
       <div class="container">
@@ -13,6 +16,27 @@ import Footer from '../components/Footer.astro';
         <p class="page-subtitle">
           Games I play, anime I watch, and things I'm into.
         </p>
+      </div>
+    </section>
+
+    <!-- Places -->
+    <section class="places-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Places</h2>
+          <span class="section-subtitle">Favorite spots</span>
+        </div>
+        
+        <div class="places-grid">
+          {favoritePlaces.map((place) => (
+            <PlaceCard 
+              name={place.name} 
+              location={place.location} 
+              image={place.image} 
+              link={place.link} 
+            />
+          ))}
+        </div>
       </div>
     </section>
   </main>
@@ -34,5 +58,37 @@ import Footer from '../components/Footer.astro';
     font-size: 1.125rem;
     color: var(--text-secondary);
     max-width: 500px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .places-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
