@@ -1,0 +1,102 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  year: string;
+  github?: string;
+  demo?: string;
+}
+
+const { id, title, description, tags, year, github, demo } = Astro.props;
+---
+
+<article class="project-card" id={id}>
+  <div class="card-top">
+    <span class="project-year">{year}</span>
+    <div class="project-links">
+      {github && (
+        <a href={github} target="_blank" rel="noopener" class="icon-link" title="View code">
+          <Icon name="lucide:github" size={18} />
+        </a>
+      )}
+      {demo && (
+        <a href={demo} target="_blank" rel="noopener" class="icon-link" title="Live demo">
+          <Icon name="lucide:external-link" size={18} />
+        </a>
+      )}
+    </div>
+  </div>
+  
+  <h3 class="project-title">{title}</h3>
+  <p class="project-description">{description}</p>
+  
+  <div class="project-tags">
+    {tags.map(tag => <span class="tag">{tag}</span>)}
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .project-year {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .project-links {
+    display: flex;
+    gap: 12px;
+  }
+
+  .icon-link {
+    color: var(--text-muted);
+  }
+
+  .project-title {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .project-description {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    padding: 4px 10px;
+    background: var(--bg-secondary);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>
