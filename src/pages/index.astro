@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { featuredProjects } from '../data/projects';
 ---
@@ -35,7 +36,7 @@ import { featuredProjects } from '../data/projects';
     <!-- About Section -->
     <section class="about" id="about">
       <div class="container">
-        <h2 class="section-title">About</h2>
+        <SectionHeader title="About" />
         
         <div class="about-grid">
           <div class="about-content">
@@ -73,10 +74,7 @@ import { featuredProjects } from '../data/projects';
     <!-- Projects Section -->
     <section class="projects">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Featured Projects</h2>
-          <a href="/projects" class="section-link">View all</a>
-        </div>
+        <SectionHeader title="Featured Projects" link="/projects" linkText="View all" />
         
         <div class="projects-grid">
           {featuredProjects.map((project, index) => (
