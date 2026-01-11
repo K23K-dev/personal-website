@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Vibes | Kevin">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="page-title">Vibes</h1>
+        <p class="page-subtitle">
+          Games I play, anime I watch, and things I'm into.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    padding: 140px 0 60px;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 16px;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+  }
+</style>

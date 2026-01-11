@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Projects | Kevin">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="page-title">
+          Things I've <span class="italic">built</span>
+        </h1>
+        <p class="page-subtitle">
+          A collection of projects from classes and late-night coding sessions. 
+          Some are polished, some are experiments, all are valuable learning experiences.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    padding: 160px 0 80px;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 20px;
+  }
+
+  .page-title .italic {
+    font-style: italic;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+</style>
