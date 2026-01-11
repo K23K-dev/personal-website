@@ -5,8 +5,10 @@ import Footer from '../components/Footer.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PlaceCard from '../components/PlaceCard.astro';
 import GameCard from '../components/GameCard.astro';
+import AnimeCard from '../components/AnimeCard.astro';
 import { favoritePlaces } from '../data/places';
 import { games, steamProfileUrl } from '../data/games';
+import { animeList, animeListUrl } from '../data/anime';
 ---
 
 <Layout title="Vibes | Kevin">
@@ -51,6 +53,19 @@ import { games, steamProfileUrl } from '../data/games';
         <div class="games-grid">
           {games.map((game) => (
             <GameCard name={game.name} hours={game.hours} image={game.image} link={game.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Anime List -->
+    <section class="anime-section">
+      <div class="container">
+        <SectionHeader title="Anime List" subtitle="All-time favorites" link={animeListUrl} linkText="Full list on Bilibili" />
+        
+        <div class="anime-grid">
+          {animeList.map((anime) => (
+            <AnimeCard title={anime.title} description={anime.description} image={anime.image} link={anime.link} />
           ))}
         </div>
       </div>
@@ -108,9 +123,22 @@ import { games, steamProfileUrl } from '../data/games';
     gap: 20px;
   }
 
+  .anime-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .anime-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (max-width: 600px) {
     .places-grid,
-    .games-grid {
+    .games-grid,
+    .anime-grid {
       grid-template-columns: 1fr;
     }
   }
