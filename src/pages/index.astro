@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="Kevin | CS @ GT">
@@ -64,6 +66,28 @@ import Footer from '../components/Footer.astro';
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <a href="/projects" class="section-link">View all</a>
+        </div>
+        
+        <div class="projects-grid">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard
+              title={project.title}
+              description={project.shortDescription}
+              tags={project.tags}
+              link={project.link || `/projects#${project.id}`}
+              index={index}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -185,5 +209,37 @@ import Footer from '../components/Footer.astro';
     border-radius: 100px;
     font-size: 0.8rem;
     color: var(--text-secondary);
+  }
+
+  /* Section Header */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .section-link {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
