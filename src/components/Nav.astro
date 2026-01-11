@@ -1,0 +1,110 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/vibes', label: 'Vibes' },
+];
+---
+
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href="/" class="logo">
+      <span class="logo-text">K</span>
+      <span class="logo-dot"></span>
+    </a>
+    
+    <div class="nav-center">
+      <div class="nav-links">
+        {links.map(link => (
+          <a 
+            href={link.href} 
+            class:list={['nav-link', { active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 0;
+    background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    position: absolute;
+    left: 24px;
+  }
+
+  .nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    background: var(--bg-secondary);
+    padding: 6px;
+    border-radius: 100px;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-link {
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-link.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      padding: 4px;
+    }
+
+    .nav-link {
+      padding: 6px 12px;
+      font-size: 0.8125rem;
+    }
+  }
+</style>
