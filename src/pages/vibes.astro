@@ -2,8 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import PlaceCard from '../components/PlaceCard.astro';
+import GameCard from '../components/GameCard.astro';
 import { favoritePlaces } from '../data/places';
+import { games, steamProfileUrl } from '../data/games';
 ---
 
 <Layout title="Vibes | Kevin">
@@ -35,6 +38,19 @@ import { favoritePlaces } from '../data/places';
               image={place.image} 
               link={place.link} 
             />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Steam Games -->
+    <section class="steam-section">
+      <div class="container">
+        <SectionHeader title="Games" subtitle="Most played games" link={steamProfileUrl} linkText="Steam profile" />
+        
+        <div class="games-grid">
+          {games.map((game) => (
+            <GameCard name={game.name} hours={game.hours} image={game.image} link={game.link} />
           ))}
         </div>
       </div>
@@ -86,8 +102,15 @@ import { favoritePlaces } from '../data/places';
     gap: 16px;
   }
 
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
   @media (max-width: 600px) {
-    .places-grid {
+    .places-grid,
+    .games-grid {
       grid-template-columns: 1fr;
     }
   }
