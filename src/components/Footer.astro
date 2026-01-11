@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const currentYear = new Date().getFullYear();
+
+const socials = [
+  { name: 'GitHub', url: 'https://github.com/K23K-dev' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kevin-kou-699488223/' },
+  { name: 'Email', url: 'mailto:kevinkou0930@gmail.com' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p class="footer-copyright">
+        © {currentYear} Kevin Kou. All rights reserved.
+      </p>
+      
+      <div class="social-links">
+        {socials.map(social => (
+          <a href={social.url} target="_blank" rel="noopener" class="social-link">
+            {social.name}
+            <Icon name="lucide:arrow-up-right" size={12} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 40px 0;
+    margin-top: 120px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer-copyright {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .social-link svg {
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>
