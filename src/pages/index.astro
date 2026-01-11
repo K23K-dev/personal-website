@@ -49,6 +49,20 @@ import Footer from '../components/Footer.astro';
               Taking courses in computer architecture, machine learning, and algorithms. 
               Looking to do research in systems or ML next semester.
             </p>
+            
+            <div class="skills">
+              <h3>Tech Stack</h3>
+              <div class="skill-tags">
+                <span>Python</span>
+                <span>Java</span>
+                <span>C++</span>
+                <span>TypeScript</span>
+                <span>PyTorch</span>
+                <span>PostgreSQL</span>
+                <span>Docker</span>
+                <span>AWS</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -144,4 +158,32 @@ import Footer from '../components/Footer.astro';
     font-weight: 600;
   }
 
+  .skills {
+    margin-top: 32px;
+  }
+
+  .skills h3 {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tags span {
+    padding: 6px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
 </style>
