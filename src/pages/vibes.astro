@@ -27,10 +27,7 @@ import { animeList, animeListUrl } from '../data/anime';
     <!-- Places -->
     <section class="places-section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Places</h2>
-          <span class="section-subtitle">Favorite spots</span>
-        </div>
+        <SectionHeader title="Places" subtitle="Favorite spots" />
         
         <div class="places-grid">
           {favoritePlaces.map((place) => (
@@ -93,22 +90,6 @@ import { animeList, animeListUrl } from '../data/anime';
 
   section {
     padding: 60px 0;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.875rem;
-    color: var(--text-muted);
   }
 
   .places-grid {
