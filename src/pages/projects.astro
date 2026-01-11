@@ -2,10 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
+import { featuredProjects } from '../data/projects';
 ---
 
 <Layout title="Projects | Kevin">
   <Nav />
+  
   <main>
     <section class="hero">
       <div class="container">
@@ -18,6 +21,27 @@ import Footer from '../components/Footer.astro';
         </p>
       </div>
     </section>
+
+    <section class="featured-projects">
+      <div class="container">
+        <h2 class="section-label">Featured Work</h2>
+        
+        <div class="featured-grid">
+          {featuredProjects.map((project) => (
+            <FeaturedProject
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              year={project.year}
+              github={project.github}
+              demo={project.demo}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
   </main>
   
   <Footer />
@@ -41,5 +65,31 @@ import Footer from '../components/Footer.astro';
     font-size: 1.125rem;
     color: var(--text-secondary);
     max-width: 600px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-primary);
+    margin-bottom: 32px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
