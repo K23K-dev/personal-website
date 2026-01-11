@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import Terminal from '../components/Terminal.astro';
 import { featuredProjects } from '../data/projects';
 ---
 
@@ -29,6 +30,20 @@ import { featuredProjects } from '../data/projects';
             <a href="/projects" class="btn btn-primary">See my work</a>
             <a href="#about" class="btn btn-secondary">More about me</a>
           </div>
+        </div>
+
+        <div class="hero-visual">
+          <Terminal title="~/life">
+            <span class="prompt">$</span> whoami<br/>
+            <span class="output">kevin @ georgia-tech</span><br/><br/>
+            <span class="prompt">$</span> cat interests.txt<br/>
+            <span class="output">distributed systems</span><br/>
+            <span class="output">machine learning</span><br/>
+            <span class="output">dev tools</span><br/>
+            <span class="output">good coffee</span><br/><br/>
+            <span class="prompt">$</span> echo $STATUS<br/>
+            <span class="output accent">building cool stuff ▊</span>
+          </Terminal>
         </div>
       </div>
     </section>
@@ -100,6 +115,13 @@ import { featuredProjects } from '../data/projects';
     display: flex;
     align-items: center;
     padding: 120px 0 80px;
+  }
+
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
   }
 
   .hero-title {
@@ -230,6 +252,13 @@ import { featuredProjects } from '../data/projects';
   }
 
   @media (max-width: 1024px) {
+    .hero .container {
+      grid-template-columns: 1fr;
+    }
+    .hero-visual {
+      display: none;
+    }
+
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);
     }
