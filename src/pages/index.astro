@@ -82,6 +82,14 @@ import { featuredProjects } from '../data/projects';
               </div>
             </div>
           </div>
+
+          <div class="about-image">
+            <img 
+              src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80" 
+              alt="Fushimi Inari shrine in Kyoto, Japan" 
+            />
+            <span class="image-caption">Fushimi Inari, Kyoto</span>
+          </div>
         </div>
       </div>
     </section>
@@ -181,7 +189,10 @@ import { featuredProjects } from '../data/projects';
 
   /* About */
   .about-grid {
-    max-width: 640px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 60px;
+    align-items: center;
   }
 
   .about-content .lead {
@@ -244,6 +255,30 @@ import { featuredProjects } from '../data/projects';
     color: var(--text-secondary);
   }
 
+  .about-image {
+    position: relative;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+  }
+
+  .image-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 0.75rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 100px;
+    backdrop-filter: blur(4px);
+  }
+
   /* Projects */
   .projects-grid {
     display: grid;
@@ -257,6 +292,11 @@ import { featuredProjects } from '../data/projects';
     }
     .hero-visual {
       display: none;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
 
     .projects-grid {
