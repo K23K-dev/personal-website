@@ -13,28 +13,28 @@ export const games: Game[] = [
     name: "Sekiro: Shadows Die Twice",
     hours: 30,
     image:
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/library_600x900.jpg",
     link: "https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice/",
   },
   {
     name: "Apex Legends",
     hours: 49,
     image:
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/library_600x900.jpg",
     link: "https://store.steampowered.com/app/1172470/Apex_Legends/",
   },
   {
     name: "ATRI -My Dear Moments-",
     hours: 9,
     image:
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1230140/header.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1230140/library_600x900.jpg",
     link: "https://store.steampowered.com/app/1230140/ATRI_My_Dear_Moments/",
   },
   {
     name: "Cyberpunk 2077",
     hours: 35,
     image:
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900.jpg",
     link: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/",
   },
 ];

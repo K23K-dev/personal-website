@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+  image: string;
+  link: string;
+  meta?: string;
+  landscape?: boolean;
+}
+
+const { title, image, link, meta, landscape = false } = Astro.props;
+---
+
+<a href={link} target="_blank" rel="noopener" class="media-card">
+  <div class:list={['media-frame', { landscape }]}>
+    <img src={image} alt={title} loading="lazy" />
+  </div>
+  <span class="media-title">{title}</span>
+  {meta && <span class="media-meta">{meta}</span>}
+</a>
+
+<style>
+  .media-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .media-frame {
+    aspect-ratio: 2 / 3;
+    margin-bottom: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .media-frame.landscape {
+    aspect-ratio: 4 / 3;
+  }
+
+  .media-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .media-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .media-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .media-card:hover .media-title {
+    color: var(--accent-primary);
+  }
+
+  .media-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+</style>

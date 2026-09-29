@@ -35,3 +35,5 @@ export const favoritePlaces: Place[] = [
     link: "https://maps.app.goo.gl/tVfsbCvPAAHSY3vV7",
   },
 ];
+
+export const savedPlacesUrl = "https://maps.app.goo.gl/UB2jyB1Fv6vVFX3a6";
