@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import FeaturedProject from '../components/FeaturedProject.astro';
-import { featuredProjects } from '../data/projects';
+import { featuredProjects, moreProjects } from '../data/projects';
 ---
 
 <Layout title="Projects | Kevin">
@@ -28,6 +28,26 @@ import { featuredProjects } from '../data/projects';
         
         <div class="featured-grid">
           {featuredProjects.map((project) => (
+            <FeaturedProject
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              year={project.year}
+              github={project.github}
+              demo={project.demo}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="more-projects">
+      <div class="container">
+        <h2 class="section-label">More Projects</h2>
+
+        <div class="featured-grid">
+          {moreProjects.map((project) => (
             <FeaturedProject
               id={project.id}
               title={project.title}
