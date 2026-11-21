@@ -14,7 +14,7 @@ export const animeList: Anime[] = [
     title: "Love Live! Nijigasaki S2",
     image:
       "https://upload.wikimedia.org/wikipedia/en/d/dc/Love_Live_Nijigasaki_Season_2_promotional_image.jpg",
-    link: "https://myanimelist.net/anime/49887/Love_Live_Nijigasaki_Gakuen_School_Idol_Doukoukai_2nd_Season",
+    link: "https://myanimelist.net/anime/48916/Love_Live_Nijigasaki_Gakuen_School_Idol_Doukoukai_2nd_Season",
   },
   {
     title: "K-On!",
